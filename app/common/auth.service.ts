@@ -1,6 +1,6 @@
 import { Injectable }     from '@angular/core';
 import { StorageService } from "./storage.service";
-import {Session} from "../login/session";
+import {Session} from "session";
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
@@ -22,8 +22,20 @@ export class AuthService {
     return this.session()['token']
   }
 
+  current_id():Number{
+    return this.session()['id']
+  }
+
   username():String{
     return this.session()['username']
+  }
+
+  role():String{
+    return this.session()['username']
+  }
+
+  isAdmin():Boolean{
+    return this.role() === 'admin';
   }
 
   check_authorized():Boolean{

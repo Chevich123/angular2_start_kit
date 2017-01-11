@@ -4,7 +4,7 @@ import { Location }                 from '@angular/common';
 import 'rxjs/add/operator/switchMap';
 
 import { LoginService } from './login.service';
-import { Session } from './session';
+import { Session } from './../common/session';
 
 @Component({
   moduleId: module.id,
@@ -21,7 +21,7 @@ export class LoginComponent {
     private router: Router,
     private location: Location
   ) {
-    this.session = new Session('andrey.rogachevich', 'Muke3shu');
+    this.session = new Session('andrey.rogachevich','**');
   }
 
   goBack(): void {

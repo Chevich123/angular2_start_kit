@@ -8,8 +8,10 @@ import {LoginService} from "./login/login.service";
   selector: 'my-app',
   template: `<h1>{{title}}</h1>
   <nav>
+    <a *ngIf="authorized" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a *ngIf="authorized" routerLink="/profile" routerLinkActive="active">Profile</a>
+    <a *ngIf="authorized" (click)="logOut()">Log Out</a>
     <a *ngIf="!authorized" routerLink="/login" routerLinkActive="active">Log In</a>
-    <a *ngIf="authorized" (click)="logOut()" class="active">Log Out</a>
   </nav>
   <router-outlet></router-outlet>
   `,
