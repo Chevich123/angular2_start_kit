@@ -5,37 +5,34 @@ import { HttpModule }    from '@angular/http';
 import './rxjs-extensions';
 
 import { AppComponent }  from './app.component';
-import { HeroesComponent }  from './heroes.component';
-import { HeroSearchComponent }  from './hero-search.component';
 import { DashboardComponent }  from './dashboard.component';
-import { HeroDetailComponent } from "./hero-detail.component";
-import { HeroService } from "./hero.service";
-import { HeroSearchService } from "./hero-search.service";
+
+import { LoginComponent }  from './login/login.component';
+import { LoginService } from "./login/login.service";
+import { StorageService } from "./common/storage.service";
+import { AuthService } from "./common/auth.service";
+import { ConstantsService } from "./common/constants.service";
 
 import { AppRoutingModule }  from './app-routing.module';
 
-// Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   declarations: [
     AppComponent,
-    HeroesComponent,
-    HeroSearchComponent,
     DashboardComponent,
-    HeroDetailComponent
+    LoginComponent
   ],
   providers: [
-    HeroService,
-    HeroSearchService
+    AuthService,
+    LoginService,
+    StorageService,
+    ConstantsService
   ],
   bootstrap: [AppComponent]
 })
